@@ -5,6 +5,7 @@
     "private": true,
     "scripts": {
         "start": "nodemon",
+        "watch-styl": "stylus -w ./source/modules/**/styl --out ./source/modules/**/css",
         "build:config": "webpack --config=\"./webpack/webpack.config.babel.js\" --env production --display-reasons",
         "build:dev": "cross-env-shell NODE_ENV=production BUILD_ENV=development npm run build:config",
         "build:prod": "cross-env-shell NODE_ENV=production BUILD_ENV=production npm run build:config",
@@ -23,9 +24,12 @@
         "gh-pages": "gh-pages -d build"
     },
     "dependencies": {
-        "classnames": "~2.2.6",
+        "axios": "^0.18.0",
+        "classnames": "^2.2.6",
         "gsap": "~2.0.1",
-        "moment": "~2.22.2",
+        "mobx": "^5.0.3",
+        "mobx-react": "^5.2.3",
+        "moment": "^2.22.2",
         "react": "~16.4.1",
         "react-dom": "~16.4.1",
         "react-transition-group": "~2.4.0",
@@ -79,7 +83,7 @@
         "postcss-preset-env": "~5.2.2",
         "postcss-reporter": "~5.0.0",
         "prettier-eslint-cli": "~4.7.1",
-        "prop-types": "~15.6.2",
+        "prop-types": "^15.6.2",
         "react-dev-utils": "~5.0.1",
         "react-hot-loader": "~4.3.3",
         "style-loader": "~0.21.0",
