@@ -3,3 +3,5 @@
 @import './animations';
 @import './globals';
 @import './breakpoints';
+
+@import "../css/index.css";

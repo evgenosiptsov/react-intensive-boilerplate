@@ -1,12 +1,13 @@
 // Core
 import { getFullApiUrl } from 'instruments';
 
-const GROUP_ID = '';
-const TOKEN = '';
+const GROUP_ID = '6vf77z4hd5';
+const TOKEN = 'rtASDLastuev77';
 
 const SOCKET_URL = 'https://lab.lectrum.io';
-const ROOT_URL = 'https://lab.lectrum.io/react/api';
-//const MAIN_URL = getFullApiUrl(ROOT_URL, GROUP_ID);
-const MAIN_URL = 'https://lab.lectrum.io/react/api/l1lz1az2m5';
 
-export { GROUP_ID, TOKEN, MAIN_URL };
+const MAIN_URL = getFullApiUrl("https://lab.lectrum.io/redux/api/feed/", GROUP_ID);
+const SIGNUP_URL = getFullApiUrl("https://lab.lectrum.io/redux/api/user/", GROUP_ID)
+const SIGNIN_URL = "https://lab.lectrum.io/redux/api/user/login"
+
+export { GROUP_ID, TOKEN, MAIN_URL, SIGNUP_URL, SIGNIN_URL };

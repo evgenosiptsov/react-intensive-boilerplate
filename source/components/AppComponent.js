@@ -1,15 +1,13 @@
 import React from 'react';
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
+import Navbarcomponent from './NavbarComponent'
 
 const AppComponent = ({ children }) => (
-	<div className="feed">
+	<div className="application">
+		<Navbarcomponent/>
 		{children}
 	</div>
 )
-
-AppComponent.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.any),
-}
 
 export default AppComponent;

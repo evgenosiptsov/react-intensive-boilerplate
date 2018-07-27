@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
 import EditorComponent from '../components/EditorComponent'
 import PostComponent from '../components/PostComponent'
-import NavbarComponent from '../components/NavbarComponent'
-import AppComponent from '../components/AppComponent'
 import { PropTypes as mobxProtoTypes } from "mobx-react"
-import '../css/index.css'
+import '../../../css/index.css'
 
 class FeedContainer extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.props.store.fetchFromServer()
+		this.props.store.fetchFeed()
 	}
-	
-	onPostEdit(id, comment) {
-		console.log(post);
-	}
-	
-	onPostRemove(post) {
-		console.log(post);
-	}
-	
-	onPostToggle(id) {
-		console.log(post);
-	}
-	
+
 	render() {
-		const { posts, fetching } = this.props.store
+		const { posts, fetchingFeed, feedError } = this.props.store
 
 		return (
-			<AppComponent>
-				<NavbarComponent fetching={fetching}/>
-				<EditorComponent onPost={(comment) => {alert(comment)}}/>
-				{ fetching && "Wait for a while" }
-				{ !fetching && posts && posts.map(post => <PostComponent onRemove={this.onPostRemove} key={post.id} {...post}/>)}
-			</AppComponent>
+			<div className="feed">
+				{ fetchingFeed && "Waiting for a while" }
+                { feedError }
+				{ !fetchingFeed && !feedError && posts && posts.map(post => <PostComponent onRemove={this.onPostRemove} key={post.id} {...post}/>)}
+                { !fetchingFeed && !feedError && !posts && "No posts already"}
+			</div>
 		);
 	}
 }

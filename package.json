@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "start": "nodemon",
-        "watch-styl": "stylus -w ./source/modules/**/styl --out ./source/modules/**/css",
+        "watch-styl": "stylus -w ./source/styl --out ./source/css",
         "build:config": "webpack --config=\"./webpack/webpack.config.babel.js\" --env production --display-reasons",
         "build:dev": "cross-env-shell NODE_ENV=production BUILD_ENV=development npm run build:config",
         "build:prod": "cross-env-shell NODE_ENV=production BUILD_ENV=production npm run build:config",
@@ -32,6 +32,8 @@
         "moment": "^2.22.2",
         "react": "~16.4.1",
         "react-dom": "~16.4.1",
+        "react-router": "^4.3.1",
+        "react-router-dom": "^4.3.1",
         "react-transition-group": "~2.4.0",
         "reset-css": "~4.0.1",
         "socket.io-client": "~2.1.1"
