@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import EditorComponent from '../components/EditorComponent'
 import PostComponent from '../components/PostComponent'
 import { PropTypes as mobxProtoTypes } from "mobx-react"
@@ -12,14 +13,18 @@ class FeedContainer extends Component {
 	}
 
 	render() {
-		const { posts, fetchingFeed, feedError } = this.props.store
+		const { posts, fetchingFeed, feedError, token } = this.props.store
 
-		return (
+        if (!token) {
+            return (<Redirect to="/signin"/>)
+        }
+
+        return (
 			<div className="feed">
 				{ fetchingFeed && "Waiting for a while" }
-                { feedError }
+				{ feedError && <div className="message--error">{feedError}</div>}
 				{ !fetchingFeed && !feedError && posts && posts.map(post => <PostComponent onRemove={this.onPostRemove} key={post.id} {...post}/>)}
-                { !fetchingFeed && !feedError && !posts && "No posts already"}
+                { !fetchingFeed && !feedError && posts && !posts.length && "No posts already"}
 			</div>
 		);
 	}

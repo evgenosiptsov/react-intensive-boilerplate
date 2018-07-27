@@ -32,13 +32,13 @@ ReactDOM.render(
         <AppComponent>
             <Switch>
                 <Route exact path='/'>
-                    { !store.token ? <Redirect to="/signin"/> : <ObserverFeedContainer store={store}/> }
+                    <ObserverFeedContainer store={store}/>
                 </Route>
                 <Route path='/signin'>
-                    { store.token ? <Redirect to="/"/> : <ObserverSigninContainer store={store}/> }
+                    <ObserverSigninContainer store={store}/>
                 </Route>
                 <Route path='/signup'>
-                    { store.token ? <Redirect to="/"/> : <ObserverSignupContainer store={store}/> }
+                    <ObserverSignupContainer store={store}/>
                 </Route>
             </Switch>
         </AppComponent>

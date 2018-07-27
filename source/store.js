@@ -34,7 +34,7 @@ class LectrumFacebookModel {
 
     signIn(email, password) {
         const data = { email, password };
-        return axios.post(SIGNIN_URL, data).then(( {data: { id, token, firstName, lastName, avatar }} ) => {
+        return axios.post(SIGNIN_URL, data).then(( {data: { data: { id, token, firstName, lastName, avatar }}} ) => {
             this.id = id;
             this.token = token;
             this.firstName = firstName;
@@ -50,8 +50,7 @@ class LectrumFacebookModel {
 
 	signUp(firstName, lastName, email, password) {
 		const data = { firstName, lastName, email, password, invite: TOKEN };
-        return axios.post(SIGNUP_URL, data).then(( res ) => {
-            const { data: { id, token, firstName, lastName, avatar, email}} = res.data
+        return axios.post(SIGNUP_URL, data).then(( { data: { data: { id, token, firstName, lastName, avatar, email}}} ) => {
             this.id = id;
             this.token = token;
             this.firstName = firstName;
@@ -69,7 +68,7 @@ class LectrumFacebookModel {
 	fetchFeed() {
 		this.fetching = true;
 		
-		return axios.get(MAIN_URL).then(( {data: { data: posts, meta: { total, page} }} ) => {
+		return axios.get(MAIN_URL, {headers: { Authorization: this.token } }).then(( {data: { data: posts, meta: { total, page} }} ) => {
 			this.feedError = '';
 			this.fetchingFeed = false;
 			this.total = total;

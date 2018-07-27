@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import SigninComponent from '../components/SigninComponent'
 import { PropTypes as mobxProtoTypes } from "mobx-react"
 
@@ -21,7 +22,11 @@ class SigninContainer extends Component {
     }
 
     render() {
-        const { signInError } = this.props.store;
+        const { signInError, token } = this.props.store;
+
+        if (token) {
+            return (<Redirect to="/"/>)
+        }
 
         return (
             <SigninComponent
