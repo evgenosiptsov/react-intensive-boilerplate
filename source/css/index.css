@@ -104,7 +104,7 @@
 .application__editor textarea {
   width: 100%;
 }
-.application__post {
+.application .feed__post {
   background-color: #fff;
   border: 1px solid #e1e2e3;
   border-radius: 3px;
@@ -116,10 +116,10 @@
   width: 500px;
   word-wrap: break-word;
 }
-.application__post__user {
+.application .feed__post__user {
   text-decoration: none;
 }
-.application__post__user time {
+.application .feed__post__user time {
   color: #90949c;
   font-size: 12px;
   top: 35px;
@@ -128,7 +128,7 @@
   position: absolute;
   text-decoration: none;
 }
-.application__post__user a {
+.application .feed__post__user a {
   color: #365899;
   font-weight: 700;
   top: 15px;
@@ -136,13 +136,13 @@
   left: 60px;
   position: absolute;
 }
-.application__post p {
+.application .feed__post p {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.4;
   margin-top: 50px;
 }
-.application__post__actions {
+.application .feed__post__actions {
   background-repeat: no-repeat;
   content: "";
   cursor: pointer;
@@ -151,11 +151,11 @@
   right: 12px;
   top: 12px;
 }
-.application__post__footer {
+.application .feed__post__footer {
   margin-top: 50px;
   user-select: none;
 }
-.application__post__footer__like {
+.application .feed__post__footer__like {
   color: #616770;
   cursor: default;
   font-size: 13px;
@@ -165,7 +165,7 @@
   padding-top: 2px;
   position: relative;
 }
-.application__post__footer__like:before {
+.application .feed__post__footer__like:before {
   background-image: url("../theme/assets/like.png");
   background-position: 0 -18px;
   background-repeat: no-repeat;
@@ -178,7 +178,7 @@
   top: -1px;
   width: 18px;
 }
-.application__post__footer__likes {
+.application .feed__post__footer__likes {
   align-items: center;
   background-color: #f6f7f9;
   border: 1px solid #e1e2e3;
@@ -188,12 +188,12 @@
   padding-left: 30px;
   position: relative;
 }
-.application__post__footer__likes__counter {
+.application .feed__post__footer__likes__counter {
   color: #365899;
   cursor: pointer;
   font-size: 13px;
 }
-.application__post__footer__likes__counter:before {
+.application .feed__post__footer__likes__counter:before {
   background-image: url("../theme/assets/like.png");
   background-position: 0 -37px;
   background-repeat: no-repeat;
